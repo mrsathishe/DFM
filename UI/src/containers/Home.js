@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { addIncrement } from '../actions/app.action';
 import { FiEdit3 } from 'react-icons/fi';
 import { TiTickOutline } from 'react-icons/ti';
+import Table from '../components/Common/Table';
 import '../static/scss/home.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-next-table/dist/SmartTable.css';
-import SmartTable from 'react-next-table';
+import HomeComponent from '../components/Home/Home';
+
 
 const intialValue = {
     date: Date.now(),
@@ -88,90 +89,8 @@ const Home = ({count, increment}) => {
     const value = '';
     const id = '';
     return (
-        <div>
-
-            <div>
-                <div>
-                    <h2>Milk Details - Jan 2022</h2>
-                    <button> More... </button>
-                </div>
-                <div>
-                    <div className='table-header sticky'>
-                        <label>Date</label>
-                        <label>Morning</label> 
-                        <label>Evening</label>
-                        <label>Actions</label>
-                    </div>
-                    <div className='table-body'>
-                        { currentCycle.map(value => (
-                            <React.Fragment>
-                                <span>
-                                    {value.date}
-                                </span>
-                                <span>
-                                    {value.morning}
-                                </span>
-                                <span>
-                                    {value.evening}
-                                </span>
-                                <span>
-                                    <FiEdit3 />
-                                </span>
-                            </React.Fragment>
-                        ))}
-                    </div>
-                </div>
-            </div>
-            
-            {/* ------------------------------------ */}
-
-            <SmartTable rowsPerPage={15} data={data} headCells={headCells} />
-
-            
-            <hr />
-            <div>
-                Milk - Month Year
-                <div>
-                    <a href='#'>More..</a>
-                </div> 
-                <table>
-                    <thead>
-                        <tr>
-                            <td> Date </td>
-                            <td> Morning </td>
-                            <td> Evening </td>
-                            <td> Total </td>
-                            <td> Actions </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>12 </td>
-                            <td>4.7</td>
-                            <td>5.3</td>
-                            <td>10</td>
-                            <td>Edit / Submit</td>
-                        </tr>
-                        <tr>
-                            15 tr..
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        
-
-
-
-            {/* ------------------------------------ */}
-            <div>
-                <button
-                    aria-label="Increment value"
-                    onClick={() => increment(count)}
-                >
-                    Increment
-                </button>
-                <span>{count}</span>
-            </div>
+        <div className='body'>
+            <HomeComponent milkValues={{headCells, data}}/>
         </div>
     )
 }

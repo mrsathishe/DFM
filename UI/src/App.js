@@ -8,30 +8,13 @@ import { useEffect, useState } from 'react';
 
 // let isWindowFocus = true;
 function App() {
-  let [isWindowFocus, setIsWindowFOcus] = useState(true);
-
-  useEffect(() => {
-    window.addEventListener("focus", () => {setIsWindowFOcus(true)})
-    window.addEventListener("blur", () => {setIsWindowFOcus(false)})
-    document.onBlur(() => {
-      setIsWindowFOcus(false)
-    })
-    return () => {
-        window.removeEventListener('focus', setIsWindowFOcus)
-        window.removeEventListener('blur',setIsWindowFOcus)
-    }
-},[])
-
-useEffect(() =>{
-  console.log(isWindowFocus)
-})
-
   return (
     <div className="App">
       <header className="App-header">
         <div>
           <div className="make-all-center">
             <div className='header-content'>
+              <span className='logo'>Milk Notes</span>
               <ul className='header-lists'>
                 <li> Welcome </li>
                 <li> <Link to="/"> <img className='border-circle' src={milk}></img> <label> Milks </label> </Link></li>

@@ -1,31 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Form, Button } from 'react-bootstrap';
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import LoginComponent from "../components/Auth/LoginComponent";
+import '../static/scss/login.scss';
+import { onLogin } from "../actions/user.action";
+import { connect } from "react-redux";
 
-const Login = ({}) => {
+const Login = ({onSubmit, user}) => {
+    // const location = useLocation();
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(user && user.id){
+            
+            navigate("/");
+        }
+    });
     return (
         <div className="login-component">
             <div className="login-outer-wrapper">
                 <div className="login-wrapper">
                     <div className="login-header">
+                        <h2>Milk Notes</h2>
+                        <hr/>
                         <h3>Login</h3>
-                        <div className="right-login-header">
-                            <span className="close-icon">x</span>
-                        </div>
                     </div>
                     <div className="login-body">
-                        <Form>
-                            <Form.Group className="" controlId="">
-                                <Form.Label>ID</Form.Label>
-                                <Form.Control type="text" placeholder="123" />
-                            </Form.Group>
-                            <Form.Group className="" controlId="">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="123" />
-                            </Form.Group>
-                            <span className="error"></span>
-                            <Button>Enter</Button>
-                        </Form>
+                        <LoginComponent onSubmit={onSubmit}/>
                         <p className="sign-up-text">If you don't have an account please <Link to={'/signup'}>SignUp Here</Link></p>
                     </div>
                     <div className="login-footer"></div>
@@ -35,4 +34,12 @@ const Login = ({}) => {
     )
 }
 
-export default Login;
+const mapStateToProps = state => ({
+    user: state.user
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    onSubmit: (userData) => dispatch(onLogin(userData))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

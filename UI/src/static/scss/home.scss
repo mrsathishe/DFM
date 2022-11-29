@@ -1,27 +1,7 @@
-.table-header {
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-    label {
-        padding: 2px 15px;
-        line-height: 15px;
-    }
-}
-
-.table-body {
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-    span {
-        padding: 2px 15px;
-        line-height: 15px;
-    }
+@import "_variables";
+.body {
+    margin: 10px 5px;
+    padding: 10px;
+    background-color: $bodyBackGround;
+    border-radius: 0.5rem;
 }

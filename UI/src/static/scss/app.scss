@@ -1,6 +1,15 @@
 .header-content {
     border-bottom: 1px solid;
 
+    .logo {
+        padding: 0 20px;
+        font-size: 33px;
+        font-weight: bolder;
+        color: #fff;
+        position: absolute;
+        margin-top: 5px;
+    }
+
     .header-lists {
         list-style: none;
         display: flex;
