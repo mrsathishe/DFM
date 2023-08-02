@@ -46,11 +46,11 @@ const HomeComponent = ({milkValues}) => {
             <div>
                 <button
                     aria-label="Increment value"
-                    onClick={() => increment(count)}
+                    // onClick={() => increment(count)}
                 >
                     Increment
                 </button>
-                <span>{count}</span>
+                {/* <span>{count}</span> */}
             </div>
         </div>
     )

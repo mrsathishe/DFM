@@ -19,5 +19,6 @@ body div {
 
 #root {
   height: 100vh;
-  background-image: linear-gradient(140deg, #e15a5a, #000, #fff);
+  /* background-image: linear-gradient(140deg, #e15a5a, #000, #fff); */
+  background-color: #c7e9ff;
 }

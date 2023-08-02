@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from '../App';
+import CowDetails from "../containers/CowDetails";
 import Home from "../containers/Home";
 import Login from "../containers/Login";
 import RequireAuth from './RequireAuth';
@@ -14,12 +15,12 @@ const RouterMenu = createBrowserRouter([
       ),
       children: [
         {
-          path: "",
+          path: "/home",
           element: <Home />
         },
         {
           path: "",
-          element: (<></>)
+          element: <CowDetails />
         }
       ]
     },

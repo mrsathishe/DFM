@@ -9,7 +9,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { GrFacebook } from 'react-icons/gr';
 import image from '../static/images/cow.jpg';
 
-const Login = ({ onSubmit, user }) => {
+const Auth = ({ onSubmit, user }) => {
     // const location = useLocation();
     const navigate = useNavigate();
     useEffect(() => {
@@ -166,4 +166,4 @@ const mapDispatchToProps = (dispatch) => ({
     onSubmit: (userData) => dispatch(onLogin(userData))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
